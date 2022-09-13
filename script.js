@@ -5,17 +5,21 @@
 var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
 var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
 //empty array to store itineraries
+var previousItineraries = [];
 
 //maybe variables for website url requests
 
 // function to load itineraries
 function loadItineraries() {
-
+    var storedItineraries = JSON.parse(localStorage.getItem('storedItineraries'));
+    if (storedItineraries) {
+        previousItineraries = storedItineraries;
+    }
 }
 
 // function to store itineraries
 function storeItineraries() {
-    localStorage.setItem('searchedCities', JSON.stringify(storedItineraries));
+    localStorage.setItem('searchedCities', JSON.stringify(previousItineraries));
 }
 
 // function to build a request url from inputs
@@ -29,11 +33,22 @@ function buildUrlFromInputs (city) {
 
 //function to display itineraries
 
-function displayItineraries () {
+function displayItineraries (storedItineraries) {
 
     // empty the container elements with a method
+    ItineraryEl.empty();
     // .splice up to 4 stored itineraries
+    storedItineraries.splice(4);
+
     // append the stored elements to the page
+    var makeItineraries = [...storedItineraries];
+
+    makeItineraries.forEach(function (location){
+        var locationDiv = $('<div>').addClass(); //TODO: Figure out what classes we're adding to the divs for itinerary functionality
+        var locationBtn = $('<button>').addClass() //TODO: Figure out what classes we're adding to the buttons for itinerary functionality
+
+        locationDiv.append(locationBtn)
+    })
 
 }
 
@@ -131,4 +146,4 @@ $('create-itinerary-btn').on('click', function(event){
 
 //loadItineraries()
 //displayItineraries(storedItineraries);
-//displayLastQuery();
+//displayLastQuery()
