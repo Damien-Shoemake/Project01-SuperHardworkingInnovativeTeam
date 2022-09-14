@@ -81,7 +81,7 @@ function searchHotels (queryUrl) {
             if (response.suggestions[1].entities[i].name === undefined){
                 break
             } 
-            if (i === 5) {
+            if (i === 3) {
                 break
             }
 
@@ -107,9 +107,20 @@ function searchEvents (queryUrl) {
     .then(function(response){
         return response.json()
     })
-    .then(function(data) {
-        console.log(data)
+    .then(function(response) {
+        console.log(response)
        
+        for (let i = 0; i < response.events.length; i++){
+            console.log(response.events[i].venue.name)
+            console.log(response.events[i].short_title)
+            if (response.events[i].short_title === undefined){
+                break
+            }
+            if (i === 3) {
+                break
+            }
+            
+        }
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //variables declared to store multiple events
         //for loop that looks something like this: 
