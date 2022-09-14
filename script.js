@@ -15,7 +15,9 @@ const optionsHotels = {
         'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
     }
 }
-//empty array to store itineraries
+//empty array to store variables
+var hotelsList = [];
+var eventsList = [];
 var previousItineraries = [];
 
 //maybe variables for website url requests
@@ -73,9 +75,11 @@ function searchHotels (queryUrl) {
     .then(function(response) {
         console.log(response) 
 
+
+
         //! LIST OF HOTELS THAT WILL BE APPENDED TO THE PAGE, AND A LOOP TO GET 4 HOTELS OR AS MANY AS POSSIBLE
         for(let i = 0; i < response.suggestions[1].entities.length; i++){
-            
+            hotelsList.push(response.suggestions[1].entities[i].name)
             console.log(response.suggestions[1].entities[i].name)
 
             if (response.suggestions[1].entities[i].name === undefined){
@@ -98,21 +102,27 @@ function searchHotels (queryUrl) {
 
 }
 
-//function to search for hotels and lodging
+//function to search for events and venues
 function searchEvents (queryUrl) {
 
     fetch(queryUrl, {
         method: "GET"
     })
-    .then(function(response){
-        return response.json()
-    })
+    .then(response => response.json())
     .then(function(response) {
         console.log(response)
        
         for (let i = 0; i < response.events.length; i++){
-            console.log(response.events[i].venue.name)
-            console.log(response.events[i].short_title)
+            var venueName = response.events[i].venue.name
+            var eventName = response.events[i].short_title
+            var returnedEvents = {}
+            returnedEvents['Venue Name'] = venueName;
+            returnedEvents['Event Name'] = eventName;
+            eventsList.push(returnedEvents);
+
+            // console.log(response.events[i].venue.name)
+            // console.log(response.events[i].short_title)
+ 
             if (response.events[i].short_title === undefined){
                 break
             }
