@@ -15,6 +15,7 @@ const optionsHotels = {
 }
 
 
+var hotelsList = []
 function getApi () {
     fetch(requestUrlHotels4, optionsHotels)
     .then(function(response) {
@@ -23,7 +24,7 @@ function getApi () {
     .then(function (response) {
         console.log(response)
         for(let i = 0; i < response.suggestions[1].entities.length; i++){
-            
+            hotelsList.push(response.suggestions[1].entities[i].name)
             console.log(response.suggestions[1].entities[i].name)
 
             if (response.suggestions[1].entities[i].name === undefined){
@@ -35,8 +36,10 @@ function getApi () {
 
         }
     }) 
+    console.log(hotelsList)
 }
 
+var eventsList = []
 function getApi2 () {
     fetch(requestUrl2, {
         method: 'GET'
@@ -47,8 +50,15 @@ function getApi2 () {
         // console.log(response.events[0].venue.name)
         // console.log(response.events[0].short_title)
         for (let i = 0; i < response.events.length; i++){
-            console.log(response.events[i].venue.name)
-            console.log(response.events[i].short_title)
+            var venueName = response.events[i].venue.name
+            var eventName = response.events[i].short_title
+            var returnedEvents = {}
+            returnedEvents['Venue Name'] = venueName;
+            returnedEvents['Event Name'] = eventName;
+            eventsList.push(returnedEvents);
+            // console.log(response.events[i].venue.name)
+            // console.log(response.events[i].short_title)
+            // eventsList.push(response.events[i].venue.name)
             if (response.events[i].short_title === undefined){
                 break
             }
@@ -57,8 +67,9 @@ function getApi2 () {
             }
             
         }
+        console.log(eventsList[0]['Event Name'])
     })
-    .catch(err => console.log(err));
+    // .catch(err => console.log(err));
 }
 
 fetchButtonEl.addEventListener('click', getApi)
