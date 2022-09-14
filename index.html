@@ -22,15 +22,14 @@
     <title>Travel & Lodging</title>
 </head>
 <body>
-
+<nav class="border-2 flex justify-between">
   <div id="welcome">
-    <h1 id="greeter"><strong>Welcome to our page!</strong></h1>
+    <h1 id="greeter" class="text-4xl"><strong>Welcome to our page!</strong></h1>
 </div>
 
-<br>
 
 <form class="search-form">
-  <input id="input-section2" type="text" placeholder="Search">
+  <input id="search-bar" type="text" placeholder="Search">
   <button id="search-button">Search</button>
 </form>
 
@@ -42,6 +41,7 @@
   <option value="Itinerary 3">Package 3</option>
   <option value="Itinerary 4">Package 4</option>
 </select>
+</nav>
 
 
 
@@ -50,28 +50,25 @@
     </header>
 
 
-    <main class="flex flex-row">
+    <main class="flex flex-row justify-between">
   
-        <div id="place-to-stay">
+
+        <div id="place-to-stay" class="border-2 p-20" >
           <h3 id="lodging">Lodging</h3>
         </div>
 
        
     
-        <div id="things-to-do">
+        <div id="things-to-do" class="border-2 p-20">
           <h3 id="events">Events</h3>
         </div>
 
-       
-
-        <!-- <div id="good-eats">
-          <h3 id="food">Food</h3>
-        </div> -->
+      
 
         
 
       </main>
-        <footer>
+        <footer class="border-2">
             <p><strong>Webpage created by:</strong></p>
             <ul>
                 <li>Robert Barnes</li>
