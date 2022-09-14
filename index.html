@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io (2)/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io (2)/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io (2)/favicon-16x16.png">  
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io (2)/favicon-16x16.png">
+      <!-- Tailwwind CSS CDN  -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
-
     <title>Travel & Lodging</title>
-
 </head>
-
 <body>
 
   <div id="welcome">
@@ -27,51 +29,47 @@
 <br>
 
 <form class="search-form">
-  <input id="input-section2" type="text" placeholder = "Search">
-  <button id="button">search</button>
+  <input id="input-section2" type="text" placeholder="Search">
+  <button id="search-button">Search</button>
 </form>
 
-<br>
 
-<label for="itinerary">Choose an itinerary package:</label>
-<select name="dropdown-menu-1" id="menu-1">
-  <option value="Itinerary 1">Package 1</option>
+<label for="itinerary">Itineraries:</label>
+<select name="dropdown-menu-1" id="itinerary-menu">
+  <option value="Itinerary 1" >Package 1</option>
   <option value="Itinerary 2">Package 2</option>
   <option value="Itinerary 3">Package 3</option>
   <option value="Itinerary 4">Package 4</option>
 </select>
 
-    <br>
+
 
     <header class="header">
       <h2 id="travel-coordination">Travel & Event Coordination!</h2>
     </header>
 
-    <br>
 
-    <main class="main">
+    <main class="flex flex-row">
   
         <div id="place-to-stay">
           <h3 id="loding">Lodging</h3>
         </div>
 
-        <br>
+       
     
         <div id="things-to-do">
           <h3 id="events">Events</h3>
         </div>
 
-        <br>
+       
 
-        <div id="good-eats">
+        <!-- <div id="good-eats">
           <h3 id="food">Food</h3>
-        </div>
+        </div> -->
 
-        <br>
+        
 
       </main>
-        
-    
         <footer>
             <p><strong>Webpage created by:</strong></p>
             <ul>
@@ -82,6 +80,8 @@
                 <li>Reginald Pitts</li>
             </ul>
         </footer>
-   
+        
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
 </body>
 </html>
