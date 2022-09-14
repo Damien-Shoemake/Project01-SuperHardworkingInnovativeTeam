@@ -1,11 +1,20 @@
 // Pseudo code for the project
 
 // HTML elements to manipulate declared as variables
-// API keys declared as variables
-var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
-var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
 var searchBarElement = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
+
+
+
+
+// API keys declared as variables
+var queryLocationHotels;
+var queryLocationEvents;
+var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
+var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
+var hotelsRequest = 'https://hotels4.p.rapidapi.com/locations/v2/search?query=' + queryLocationHotels + '&locale=en_US&currency=USD';
+var seatgeekRequest = "https://api.seatgeek.com/2/events?q=" + queryLocationEvents + "&client_id=" + myApiKeySeatgeek;
+
 
 //javascript object to pass in the fetch request
 const optionsHotels = {
