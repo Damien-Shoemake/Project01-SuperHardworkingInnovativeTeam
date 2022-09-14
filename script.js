@@ -6,6 +6,15 @@ var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
 var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
 var searchBarElement = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
+
+//javascript object to pass in the fetch request
+const optionsHotels = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': myApiKeyHotels4,
+        'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
+    }
+}
 //empty array to store itineraries
 var previousItineraries = [];
 
@@ -57,9 +66,7 @@ function displayItineraries (storedItineraries) {
 //function to search for hotels and lodging
 function searchHotels (queryUrl) {
 
-    fetch(queryUrl, {
-        method: "GET"
-    })
+    fetch(queryUrl, optionsHotels)
     .then(function(response){
         return response.json()
     })
