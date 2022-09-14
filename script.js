@@ -4,6 +4,8 @@
 // API keys declared as variables
 var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
 var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
+var searchBarElement = $('#search-button')
+var itineraryEl = $('#itinerary-menu')
 //empty array to store itineraries
 var previousItineraries = [];
 
@@ -44,7 +46,7 @@ function displayItineraries (storedItineraries) {
     var makeItineraries = [...storedItineraries];
 
     makeItineraries.forEach(function (location){
-        var locationDiv = $('<div>').addClass(); //TODO: Figure out what classes we're adding to the divs for itinerary functionality
+        var locationDiv = itineraryEl.addClass(); //TODO: Figure out what classes we're adding to the divs for itinerary functionality
         var locationBtn = $('<button>').addClass() //TODO: Figure out what classes we're adding to the buttons for itinerary functionality
 
         locationDiv.append(locationBtn)
@@ -104,11 +106,11 @@ function searchEvents (queryUrl) {
 function displayLastQuery() {
     if(storedItineraries[0]) {
         //var queryUrl = function to build query to search both apis, stored as an array
-        searchEvents(queryUrl);
-        searchHotels(queryUrl);
+        searchEvents(queryUrl[0]);
+        searchHotels(queryUrl[1]);
     }
     else {
-        //manipulate search bar element to say "Search for where you want to go!" or whatever
+        searchBarElement.innerHTML = "Search for where you want to go!";
     }
 }
 
@@ -119,11 +121,11 @@ $('search-btn').on('click', function(event){
     event.preventDefault();
 
     //call the city from the input, test with trim is better or not
-    // var city = searchBarElement.val().trim()
-    // city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
+    var city = searchBarElement.val().trim()
+    city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
     
     //clear the input without default refresh
-    //searchBarElement.val('');
+    searchBarElement.val('');
 
     //build the query url with the city and call the functions
     if(searchBarElement) {
