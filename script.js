@@ -4,7 +4,7 @@
 // API keys declared as variables
 var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
 var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
-var searchBarElement = $('#search-button')
+var searchBarElement = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
 //empty array to store itineraries
 var previousItineraries = [];
