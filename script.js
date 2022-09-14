@@ -4,7 +4,7 @@
 // API keys declared as variables
 var myApiKeyHotels4 = '8d71a3ad23msh7adad3bfc1157efp18ba6cjsn8e5d192cc4a8';
 var myApiKeySeatgeek = 'Mjg5Njc5NTd8MTY2MjY4MzQ5Ny43NzI4ODM0';
-var searchBarElement = $('#search-button')
+var searchBarElement = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
 //empty array to store itineraries
 var previousItineraries = [];
@@ -61,10 +61,24 @@ function searchHotels (queryUrl) {
         method: "GET"
     })
     .then(function(response){
-        response.json()
+        return response.json()
     })
-    .then(function(data) {
-        console.log(data) 
+    .then(function(response) {
+        console.log(response) 
+
+        //! LIST OF HOTELS THAT WILL BE APPENDED TO THE PAGE, AND A LOOP TO GET 4 HOTELS OR AS MANY AS POSSIBLE
+        for(let i = 0; i < response.suggestions[1].entities.length; i++){
+            
+            console.log(response.suggestions[1].entities[i].name)
+
+            if (response.suggestions[1].entities[i].name === undefined){
+                break
+            } 
+            if (i === 5) {
+                break
+            }
+
+        }
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //for loop that looks something like this: 
         //for(var i = 0; i <= 4; i++){
@@ -84,7 +98,7 @@ function searchEvents (queryUrl) {
         method: "GET"
     })
     .then(function(response){
-        response.json()
+        return response.json()
     })
     .then(function(data) {
         console.log(data)
