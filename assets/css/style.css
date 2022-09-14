@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#welcome {
+
+}
+
+#greeter {
+
+}
+
+.search-form {
+
+}
+
+#input-section2 {
+
+}
+
+#button {
+
+}
+
+/* Need syntax to target for & value in lines 36-41 in html */
+
+.header {
+
+}
+
+#travel-coordination {
+
+}
+
+.main {
+
+}
+
+#place-to-stay {
+
+}
+
+#lodging {
+
+}
+
+#things-to-do {
+
+}
+
+#events {
+
+}
+
+#good-eats {
+
+}
+
+#food {
+
+}
+
