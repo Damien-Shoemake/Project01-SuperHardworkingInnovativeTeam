@@ -28,8 +28,19 @@ const optionsHotels = {
 var hotelsList = [];
 var eventsList = [];
 var previousItineraries = [];
+const mainNav = document.getElementById("main-nav");
+const toggleMenuIcon = document.getElementById("toggleicon");
 
 //maybe variables for website url requests
+
+//Function to change menu button depending on if opened or closed
+function toggleMenu() {
+    mainNav.classList.toggle('hidden');
+
+
+    toggleMenuIcon.classList.toggle('fa-bars');
+    toggleMenuIcon.classList.toggle('fa-circle-xmark');
+}
 
 // function to load itineraries
 function loadItineraries() {
