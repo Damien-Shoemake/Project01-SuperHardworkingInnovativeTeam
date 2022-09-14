@@ -14,52 +14,50 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io (2)/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io (2)/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io (2)/favicon-16x16.png">
-      <!-- Tailwwind CSS CDN  -->
+      <!-- Tailwind CSS CDN Link -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <!-- CSS Stylesheet Link -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Travel & Lodging</title>
+    <title>Event-Easy</title>
 </head>
-<body>
-<nav class="border-2 flex justify-between">
-  <div id="welcome">
-    <h1 id="greeter" class="text-4xl"><strong>Welcome to our page!</strong></h1>
-</div>
+<body class="overflow-x-hidden">
+<nav class="bg-gradient-to-r from-sky-500 to-indigo-500 flex justify-between items-center px-5 py-10">
 
+  <h1 class="text-4xl font-bold">Event-Easy <i class="fa-solid fa-location-dot"></i></h1>
 
-<form class="search-form">
-  <input id="search-bar" type="text" placeholder="Search">
-  <button id="search-button">Search</button>
+<!-- Container with Search Bar, Search Button, and Dropdown Box -->
+<div class="flex justify-between mx-5">
+<form class="search-form mx-2">
+  <input class="rounded-full py-1 pl-3 pr-10" id="search-bar" type="text" placeholder="Search...">
+  <button id="search-button" class="-ml-8 mr-6"><i class="fa-solid fa-magnifying-glass"></i></button>
 </form>
 
 
-<label for="itinerary">Itineraries:</label>
-<select name="dropdown-menu-1" id="itinerary-menu">
+<label for="itinerary">Itineraries</label>
+<select name="dropdown-menu-1" id="itinerary-menu" class=" rounded px-3 ml-2">
   <option value="Itinerary 1" >Package 1</option>
   <option value="Itinerary 2">Package 2</option>
   <option value="Itinerary 3">Package 3</option>
   <option value="Itinerary 4">Package 4</option>
 </select>
+</div>
 </nav>
-
-
 
     <header class="header">
       <h2 id="travel-coordination">Travel & Event Coordination!</h2>
     </header>
 
-
-    <main class="flex flex-row justify-between">
+    <!-- Main container made into flex container to adjust orientation based on default minimum breakpoints -->
+    <main class="flex flex-col justify-around items-center lg:flex-row justify-around pt-20 pb-20">
   
-
-        <div id="place-to-stay" class="border-2 p-20" >
+      <!-- Lodging Card that will populate from Search Button click -->
+        <div id="place-to-stay" class="border-2 rounded p-20 w-1/3 my-8" >
           <h3 id="lodging">Lodging</h3>
         </div>
 
        
-    
-        <div id="things-to-do" class="border-2 p-20">
+        <!-- Event Card that will populate from Search Button click -->
+        <div id="things-to-do" class="border-2 rounded p-20 w-1/3 my-8">
           <h3 id="events">Events</h3>
         </div>
 
@@ -68,8 +66,9 @@
         
 
       </main>
-        <footer class="border-2">
-            <p><strong>Webpage created by:</strong></p>
+      <!-- Footer with Copyright and Collaborator Credits -->
+        <footer class="text-center inset-x-0 bottom-0 pb-2">
+            <p class="font-bold">© 2022 Made with <span class="text-red-600">❤</span> by:</p>
             <ul>
                 <li>Robert Barnes</li>
                 <li>Damien Shoemake</li>
@@ -78,8 +77,10 @@
                 <li>Reginald Pitts</li>
             </ul>
         </footer>
-        
+    
+<!-- JQuery CDN Link -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!-- JavaScript File Link -->
 <script src="./script.js"></script>
 </body>
 </html>
