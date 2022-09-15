@@ -1,14 +1,11 @@
-# Project01-TeamNameTBD
+# Project01: Event-Easy
 Project 1 for coding bootcamp
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+- The motivation behind creating this webpage was to help address the everyday concerns and problems of travel coordination, by implementing a website that helps users search for events & lodging options in relation to the location of their choosing.
+- The purpose of this particular project displays our knowledge of class topics covered through the first six modules of our course, as our group members worked in a collaborative enviroment to use the tools and practices learned to create this final product. 
+- Throughout the process of working on this project, we all learned how to operate on Github within project repository, including creating & merging branches, navigating through pull requests and issues, hosting scrum meetings, and most importantly getting hands on experience working with other classmates, which helps all involved learn how to communicate and work collectively to accomplish a number of tasks. 
 
 ## Table of Contents (Optional)
 
