@@ -1,7 +1,7 @@
 // Pseudo code for the project
 
 // HTML elements to manipulate declared as variables
-var searchBarElement = $('#search-bar')
+var searchBarEl = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
 var headerEl = $('#travel-coordination')
 var hotelEl = $('#lodging')
@@ -29,6 +29,7 @@ const optionsHotels = {
         'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
     }
 }
+
 //empty array to store variables
 var hotelsList = [];
 var eventsList = [];
@@ -62,10 +63,15 @@ function storeItineraries() {
 
 // function to build a request url from inputs
 function buildUrlFromInputs (city) {
+    if (typeof(city) !== String) {
+        //Modal that says "Please enter a city"
+    }
     if (city) {
-        // let seatgeekSearchCity = https:// syntax + search queries
-        // let hotels4SearchCity = https:// syntax + search queries
-        return //api call urls via array for a city related search for both apis [seatgeekSearchCity, hotels4SearchCity]
+        queryLocationEvents = city;
+        queryLocationHotels = city;
+        let seatgeekSearchCity = "https://api.seatgeek.com/2/events?q=" + queryLocationEvents + "&client_id=" + myApiKeySeatgeek;
+        let hotels4SearchCity = 'https://hotels4.p.rapidapi.com/locations/v2/search?query=' + queryLocationHotels + '&locale=en_US&currency=USD'
+        return[seatgeekSearchCity, hotels4SearchCity]
     }
 }
 
@@ -115,6 +121,7 @@ function searchHotels (queryUrl) {
             }
 
         }
+        console.log(hotelsList)
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //for loop that looks something like this: 
         //for(var i = 0; i <= 4; i++){
@@ -154,7 +161,7 @@ function searchEvents (queryUrl) {
             if (i === 3) {
                 break
             }
-            
+            console.log(returnedEvents)
         }
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //variables declared to store multiple events
@@ -182,23 +189,25 @@ function displayLastQuery() {
 }
 
 //event listener for search button 
-$('search-btn').on('click', function(event){
+$('#search-button').on('click', function(event){
 
     //prevent default
     event.preventDefault();
 
     //call the city from the input, test with trim is better or not
-    var city = searchBarElement.val().trim()
-    city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
+    var city = searchBarEl.val().trim()
+    console.log(city)
+    // city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
     
     //clear the input without default refresh
-    searchBarElement.val('');
+    searchBarEl.val('');
 
     //build the query url with the city and call the functions
-    if(searchBarElement) {
-        var queryUrl = buildUrlFromInputs(searchBarElement);
-        searchEvents(queryUrl);
-        searchHotels(queryUrl);
+    if(city) {
+        var queryUrl = buildUrlFromInputs(city);
+        console.log(queryUrl)
+        searchEvents(queryUrl[0]);
+        searchHotels(queryUrl[1]);
     }
 })
 
@@ -211,6 +220,7 @@ $('create-itinerary-btn').on('click', function(event){
     //append all of the elements of the data into a new itinerary card
 
 })
+
 
 // Variables declared to grab List Elements and Modal Buttons
 const saveModal = document.getElementById("save-modal");
@@ -232,6 +242,20 @@ function closeModal() {
   eventLinks.children.addEventListener("click", popUpModal);
 
 
+//!DEBUGGING
+// $('#search-button').on('click', function(event){
+//     event.preventDefault();
+//     queryLocationEvents = searchBarEl.val().trim();
+//     console.log('Button works')
+//     if (event){
+//     fetch(seatgeekRequest, {
+//         method: 'GET'
+//     }).then(response => response.json())
+//     .then(function(response){
+//         console.log(response)
+//     })
+//     }
+//})
 //loadItineraries()
 //displayItineraries(storedItineraries);
 //displayLastQuery()
