@@ -33,12 +33,17 @@ body {
 
 /* Need syntax to target for & value in lines 36-41 in html */
 
-.header {
-
+#travel-coordination {
+  position: center;
+  color: white;
+  font-size: 30px;
+  padding-top: 2px;
 }
 
-#travel-coordination {
-
+#subtitle {
+  color:greenyellow;
+  font-size: 15px;
+  position: center;
 }
 
 .main {
