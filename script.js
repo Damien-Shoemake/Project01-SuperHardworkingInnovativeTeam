@@ -212,6 +212,25 @@ $('create-itinerary-btn').on('click', function(event){
 
 })
 
+// Variables declared to grab List Elements and Modal Buttons
+const saveModal = document.getElementById("save-modal");
+const closeModalBtn = document.getElementById("close-modal");
+const modalOkBtn = document.getElementById("modal-ok");
+let hotelLinks = document.getElementById("hotelCard");
+let eventLinks = document.getElementById("eventCard");
+
+function popUpModal() {
+  saveModal.classList.remove("hidden");
+}
+function closeModal() {
+  saveModal.classList.add("hidden");
+}
+
+  closeModalBtn.addEventListener("click", closeModal);
+  modalOkBtn.addEventListener("click", closeModal);
+  hotelLinks.children.addEventListener("click", popUpModal);
+  eventLinks.children.addEventListener("click", popUpModal);
+
 
 //loadItineraries()
 //displayItineraries(storedItineraries);

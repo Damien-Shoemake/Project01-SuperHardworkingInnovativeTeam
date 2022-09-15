@@ -60,50 +60,78 @@
   
 
     <!-- Main container made into flex container to adjust orientation based on default minimum breakpoints -->
-    <main class="flex flex-col justify-around items-center overflow-y-scroll lg:flex-row justify-around pt-20 pb-20">
+    <main class="flex flex-col justify-between items-center overflow-y-scroll lg:flex-row lg:justify-around pt-20 pb-20">
 
 
   
       <!-- Lodging Card that will populate from Search Button click -->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-blue-400">
-        <div class="px-6 py-4">
-          <div class="text-center font-bold text-xl mb-2">Event Name</div>
-            <ul id="eventCard" class="text-center">
-              <li>Destination/Event</li>
-              <li>Description?</li>
-            </ul>
-          </div>
-        <div class="text-center px-6 pt-4 pb-2">
-          <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag1</span>
-          <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag2</span>
-          <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag3</span>
-        </div>
+      <div class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mb-10 lg:mb-0">
+        <h2 class="font-bold text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24">Events in your Area:</h2>
+        <div class="mt-8">
+        <ul id="eventCard" class="text-xl">
+          <li id="eventlist1"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+          <li id="eventlist2"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+          <li id="eventlist3"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+          <li id="eventlist4"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+        </ul>
       </div>
+      </div>
+     
 
        
         <!-- Event Card that will populate from Search Button click -->
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-blue-400">
-          <div class="px-6 py-4">
-            <div class="text-center font-bold text-xl mb-2">Hotel Name</div>
-              <ul id="hotelCard" class="text-center">
-                <li>Destination/Event</li>
-                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
-              </ul>
-            </div>
-          <div class="text-center px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag1</span>
-            <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag2</span>
-            <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tag3</span>
+        <div class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mt-10 lg:mt-0">
+          <h2 class="font-bold text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24">Lodging in Your Area:</h2>
+          <div class="mt-8">
+            <ul id="hotelCard" class="text-xl">
+              <li id="hotellist1"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+              <li id="hotellist2"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+              <li id="hotellist3"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+              <li id="hotellist4"><a href="javascript:void(0)" onclick="popUpModal()">Lorem Ipsum</a></li>
+            </ul>
           </div>
         </div>
-
-      
-
         
 
       </main>
+      <!-- Modal to confirm item added to Itinerary based on clicked list item -->
+      <div id="save-modal" class="hidden bg-black bg-opacity-50 absolute inset-0 flex justify-center items-center">
+        <div class="bg-gray-50 max-w-sm py-2 px-4 rounded-lg shadow-xl">
+          <div class="flex justify-between items-center">
+            <h4 class="text-lg text-center font-bold">Success!
+            </h4><i class="fa-solid fa-xmark cursor-pointer p-1 rounded hover:bg-gray-300" id="close-modal"></i>
+          </div>
+          <div class="mx-6 py-4 px-8">
+            List Item Saved <i class="fa-solid text-green-500 fa-circle-check"></i>
+          </div>
+          <div class="flex justify-end space-x-4">
+            <button class="px-3 py-1 rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white" id="modal-ok">OK</button>
+          </div>
+        </div>
+      </div>
+      <!-- <script>
+        const saveModal = document.getElementById("save-modal");
+        const closeModalBtn = document.getElementById("close-modal");
+        const modalOkBtn = document.getElementById("modal-ok");
+        var hotelList = document.getElementById("hotelCard");
+        const eventList = document.getElementById("eventCard");
+
+        function popUpModal() {
+          saveModal.classList.remove("hidden");
+        }
+        function closeModal() {
+          saveModal.classList.add("hidden");
+        }
+        
+          closeModalBtn.addEventListener("click", closeModal);
+          modalOkBtn.addEventListener("click", closeModal);
+          hotelList.children.addEventListener("click", popUpModal);
+          eventList.children.addEventListener("click", popUpModal);
+      </script> -->
+     
+   
       <!-- Footer with Copyright and Collaborator Credits -->
-        <footer class="text-center text-white inset-x-0 bottom-0 pb-2 absolute">
+        <footer class="text-center text-white inset-x-0 bottom-0 pb-2">
             <p class="font-bold">© 2022 Made with <span class="text-red-600">❤</span> by:</p>
             <ul>
                 <li>Robert Barnes</li>
