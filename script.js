@@ -3,6 +3,11 @@
 // HTML elements to manipulate declared as variables
 var searchBarElement = $('#search-bar')
 var itineraryEl = $('#itinerary-menu')
+var headerEl = $('#travel-coordination')
+var hotelEl = $('#lodging')
+var eventEl = $('#events')
+var hotelList = $('#hotelCard')
+var eventsList = $('#eventCard')
 
 
 
