@@ -127,15 +127,8 @@ function searchHotels (queryUrl) {
         
     })
     .then(function(){
-        printHotelData()
-        // html elements manipulated with .text(data.name) (or whatever other syntax)
-        //for loop that looks something like this: 
-        //for(var i = 0; i <= 4; i++){
-        //  var hotelsReturned = data.lodging[i] (or whatever the syntax truly is)
-        //  var pricingReturned = data.lodging[i].pricing (or whatever the syntax truly is)
-        //  elementManipulated.innerHTML = hotelsReturned;
-        //  otherElementManipulated.innerHTML = pricingReturned; 
-        //}
+        printHotelData();
+        
     })
 
 }
@@ -165,8 +158,8 @@ function searchEvents (queryUrl) {
             var venueName = response.events[i].venue.name
             var eventName = response.events[i].short_title
             var returnedEvents = {}
-            returnedEvents['Venue Name' + i] = venueName;
-            returnedEvents['Event Name' + i] = eventName;
+            returnedEvents['venueName'] = venueName;
+            returnedEvents['eventName'] = eventName;
             eventsList.push(returnedEvents);
 
             // console.log(response.events[i].venue.name)
@@ -178,7 +171,7 @@ function searchEvents (queryUrl) {
             if (i === 3) {
                 break
             }
-            //console.log(returnedEvents)
+            console.log(eventsList)
         }
         return eventsList;
         
@@ -241,8 +234,17 @@ $('#search-button').on('click', function(event){
 
 function printEventsData () {
 
-//TODO: CREATE A LOOP TO CALL OUR INFORMATION STORED IN THE eventsList OBJECT, THE KEYWORD IS DYNAMICALLY ALTERED WITH EACH CALL, REFER TO THE FOR LOOP UNDER THE searchEvents() FUNCTION, IN THE FUNCTION AFTER THE JSON RESPONSE PROMISE
+    for (i = 0; i < eventsList.length; i++) {
+        
+        let appendNum = i + 1;
+        var listToAppend = $("#eventlist" + appendNum)
+        var venueToAppend = eventsList[i].venueName
+        var eventToAppend = eventsList[i].eventName
+        console.log(eventsList[i].venueName)
+        listToAppend.text(eventToAppend.replace('&amp;', '&') + ' @ ' + venueToAppend.replace('&amp;', '&'))
 
+        console.log(eventsList[i])
+    }
 }
 
 
