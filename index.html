@@ -1,119 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font Awesome Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Favicon Links -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io (2)/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io (2)/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io (2)/favicon-16x16.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/images/favicon_io (2)/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon_io (2)/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/favicon_io (2)/favicon-16x16.png"
+    />
     <!-- Normalize CSS Stylesheet Link -->
-    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
     <!-- Tailwind CSS CDN Link -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- CSS Stylesheet Link -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Event-Easy</title>
-</head>
-<body class="overflow-hidden">
+  </head>
+  <body class="overflow-hidden">
     <!-- Nav Bar to adjust based on minimum breakpoint -->
-    <nav class="relative px-5 flex justify-between items-center bg-gradient-to-r from-sky-500 to-indigo-500 border-b-2 border-black px-5 py-4">
+    <nav
+      class="relative px-5 flex justify-between items-center bg-gradient-to-r from-sky-500 to-indigo-500 border-b-2 border-black px-5 py-4"
+    >
       <!-- Header Element with location icon -->
-      <h1 class="text-5xl font-bold">Event-<span class="italic text-white">Easy</span> <i class="fa-solid fa-location-dot"></i></h1>
-  
-  <!-- Search Bar and Search Button that "appear" from Menu Bars after reaching "lg" minimum breakpoint -->
-  <div class="hidden absolute top-14 right-0 mt-12 px-5 py-10 space-y-4 bg-slate-600 h-screen flex flex-col 
-   lg:flex lg:relative lg:top-0 lg:right-0 lg:p-5 lg:space-y-0 lg:flex-row lg:h-full lg:justify-between lg:items-center lg:ml-10 lg:bg-inherit" id="main-nav">
-      <form class="search-form mx-2">
-        <input class="rounded-full py-1 pl-3 pr-10" id="search-bar" type="text" placeholder="Search...">
-        <button id="search-button" class="-ml-8 mr-6"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
+      <h1 class="text-5xl font-bold">
+        Event-<span class="italic text-white">Easy</span>
+        <i class="fa-solid fa-location-dot"></i>
+      </h1>
 
-      <!-- button for itinerary -->
-      <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Itineraries<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-      
-      <!-- Dropdown Menu for Custom Itinieraries from User Selection -->
-      <div id="dropdownDivider" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton" id="savedropdown">
-          <li>
-            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-1">Itinerary 1</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-2">Itinerary 2</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-3">Itinerary 3</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-4">Itinerary 4</a>
-          </li>
-        </ul>
-    </div>
+      <!-- Search Bar and Search Button that "appear" from Menu Bars after reaching "lg" minimum breakpoint -->
+      <div
+        class="hidden absolute top-14 right-0 mt-12 px-5 py-10 space-y-4 bg-slate-600 h-screen flex flex-col lg:flex lg:relative lg:top-0 lg:right-0 lg:p-5 lg:space-y-0 lg:flex-row lg:h-full lg:justify-between lg:items-center lg:ml-10 lg:bg-inherit"
+        id="main-nav"
+      >
+        <form class="search-form mx-2">
+          <input
+            class="rounded-full py-1 pl-3 pr-10"
+            id="search-bar"
+            type="text"
+            placeholder="Search..."
+          />
+          <button id="search-button" class="-ml-8 mr-6">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!-- button for itinerary -->
+        <button
+          id="dropdownDividerButton"
+          data-dropdown-toggle="dropdownDivider"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button"
+        >
+          Itineraries<svg
+            class="ml-2 w-4 h-4"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Dropdown Menu for Custom Itinieraries from User Selection -->
+        <div
+          id="dropdownDivider"
+          class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+        >
+          <ul
+            class="py-1 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownDividerButton"
+            id="savedropdown"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                id="Itin-1"
+                >Itinerary 1</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                id="Itin-2"
+                >Itinerary 2</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                id="Itin-3"
+                >Itinerary 3</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                id="Itin-4"
+                >Itinerary 4</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
 
-  <!-- Bar Icon to open and close the Nav Menu when screen width reaches the "md" minimum breakpoint -->
-  <a class="lg:hidden text-white text-2xl" href="javascript:void(0)" onclick="toggleMenu()"><i
-          id="toggleicon" class="fa-bars fa-solid"></i></a>
-  </nav>
+      <!-- Bar Icon to open and close the Nav Menu when screen width reaches the "md" minimum breakpoint -->
+      <a
+        class="lg:hidden text-white text-2xl"
+        href="javascript:void(0)"
+        onclick="toggleMenu()"
+        ><i id="toggleicon" class="fa-bars fa-solid"></i
+      ></a>
+    </nav>
 
     <!-- Description Header -->
-  <h2 class="text-center text-white text-3xl font-semibold pt-2">Travel & Event Coordination!</h2>
-  <h3 class="text-center text-white text-3xl font-semibold pt-1">Pack Your bags, we're going on vacation!</h3>
+    <h2 class="text-center text-white text-3xl font-semibold pt-2">
+      Travel & Event Coordination!
+    </h2>
+    <h3 class="text-center text-white text-3xl font-semibold pt-1">
+      Pack Your bags, we're going on vacation!
+    </h3>
 
     <!-- Main container made into flex container to adjust orientation based on default minimum breakpoints -->
-    <main class="flex flex-col justify-between items-center overflow-y-scroll lg:flex-row lg:justify-around pt-20 pb-20">
-
+    <main
+      class="flex flex-col justify-between items-center overflow-y-scroll lg:flex-row lg:justify-around pt-20 pb-20"
+    >
       <!-- Lodging Card that will populate from Search Button click -->
-      <div class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mb-10 lg:mb-0">
-        <h2 class="font-bold align-top text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24">Events in your Area:</h2>
+      <div
+        class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mb-10 lg:mb-0"
+      >
+        <h2
+          class="font-bold align-top text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24"
+        >
+          Events in your Area:
+        </h2>
         <div class="mt-8">
-        <ul id="eventCard" class="text-xl">
-          <li><a id='eventlist1' href="javascript:void(0)" onclick="popUpModal1()"></a></li>
-          <li><a id='eventlist2' href="javascript:void(0)" onclick="popUpModal2()"></a></li>
-          <li><a id='eventlist3' href="javascript:void(0)" onclick="popUpModal3()"></a></li>
-          <li><a id='eventlist4' href="javascript:void(0)" onclick="popUpModal4()"></a></li>
-        </ul>
-      </div>
-      </div>
-       
-        <!-- Event Card that will populate from Search Button click -->
-        <div class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mt-10 lg:mt-0">
-          <h2 class="font-bold text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24">Lodging in Your Area:</h2>
-          <div class="mt-8">
-            <ul id="hotelCard" class="text-xl">
-              <li><a id='hotellist1' href="javascript:void(0)" onclick="popUpModalH1()"></a></li>
-              <li><a id='hotellist2' href="javascript:void(0)" onclick="popUpModalH2()"></a></li>
-              <li><a id='hotellist3' href="javascript:void(0)" onclick="popUpModalH3()"></a></li>
-              <li><a id='hotellist4' href="javascript:void(0)" onclick="popUpModalH4()"></a></li>
-            </ul>
-          </div>
+          <ul id="eventCard" class="text-xl">
+            <li>
+              <a
+                id="eventlist1"
+                href="javascript:void(0)"
+                onclick="popUpModal1()"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="eventlist2"
+                href="javascript:void(0)"
+                onclick="popUpModal2()"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="eventlist3"
+                href="javascript:void(0)"
+                onclick="popUpModal3()"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="eventlist4"
+                href="javascript:void(0)"
+                onclick="popUpModal4()"
+              ></a>
+            </li>
+          </ul>
         </div>
-        
-      </main>
+      </div>
 
-      <!-- Modal to confirm item added to Itinerary based on clicked list item -->
-      <div id="save-modal" class="hidden bg-black bg-opacity-50 absolute inset-0 flex justify-center items-center">
-        <div class="bg-gray-50 max-w-sm py-2 px-4 rounded-lg shadow-xl">
-          <div class="flex justify-between items-center">
-            <h4 class="text-lg text-center font-semibold">Success!
-            </h4><i class="fa-solid fa-xmark cursor-pointer p-1 rounded hover:bg-gray-300" id="close-modal"></i>
-          </div>
-          <div class="mx-6 py-4 px-8">
-            List Item Saved <i class="fa-solid text-green-500 fa-circle-check"></i>
-          </div>
-          <div class="flex justify-end space-x-4">
-            <button class="px-3 py-1 rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white" id="modal-ok">OK</button>
-          </div>
+      <!-- Event Card that will populate from Search Button click -->
+      <div
+        class="w-1/3 rounded-lg border-2 border-black text-center shadow-lg bg-blue-400 bg-opacity-80 px-8 py-20 mt-10 lg:mt-0"
+      >
+        <h2
+          class="font-bold text-white text-2xl bg-blue-700 rounded-lg border-2 border-black px-8 mb-2 -mt-24"
+        >
+          Lodging in Your Area:
+        </h2>
+        <div class="mt-8">
+          <ul id="hotelCard" class="text-xl">
+            <li>
+              <a
+                id="hotellist1"
+                href="javascript:void(0)"
+                onclick="popUpModalHotel(this)"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="hotellist2"
+                href="javascript:void(0)"
+                onclick="popUpModalHotel(this)"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="hotellist3"
+                href="javascript:void(0)"
+                onclick="popUpModalHotel(this)"
+              ></a>
+            </li>
+            <li>
+              <a
+                id="hotellist4"
+                href="javascript:void(0)"
+                onclick="popUpModalHotel(this)"
+              ></a>
+            </li>
+          </ul>
         </div>
       </div>
-      <!-- <script>
+    </main>
+
+    <!-- Modal to confirm item added to Itinerary based on clicked list item -->
+    <div
+      id="save-modal"
+      class="hidden bg-black bg-opacity-50 absolute inset-0 flex justify-center items-center"
+    >
+      <div class="bg-gray-50 max-w-sm py-2 px-4 rounded-lg shadow-xl">
+        <div class="flex justify-between items-center">
+          <h4 class="text-lg text-center font-semibold">Success!</h4>
+          <i
+            class="fa-solid fa-xmark cursor-pointer p-1 rounded hover:bg-gray-300"
+            id="close-modal"
+          ></i>
+        </div>
+        <div class="mx-6 py-4 px-8">
+          List Item Saved
+          <i class="fa-solid text-green-500 fa-circle-check"></i>
+        </div>
+        <div class="flex justify-end space-x-4">
+          <button
+            class="px-3 py-1 rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white"
+            id="modal-ok"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <script>
         const saveModal = document.getElementById("save-modal");
         const closeModalBtn = document.getElementById("close-modal");
         const modalOkBtn = document.getElementById("modal-ok");
@@ -132,43 +297,64 @@
           hotelList.children.addEventListener("click", popUpModal);
           eventList.children.addEventListener("click", popUpModal);
       </script> -->
-      <!-- Modal to populate items set from Local Sorage -->
-      <div id="storage-modal" class="hidden bg-black bg-opacity-50 inset-0 absolute flex justify-center items-center">
-        <div class="bg-gray-50 w-2/5 h-80 max-w-4xl py-30 px-30 rounded-lg shadow-xl">
-          <div class="sm:overflow-y-hidden lg:overflow-hidden sm:relative lg:flex justify-between items-center text-center">
-            <h4 class="text-lg text-center p-1 sm:ml-0 lg:ml-72 font-semibold">Your Current Itinerary:</h4>
-            <i class="fa-solid fa-xmark cursor-pointer mr-1 p-1 rounded hover:bg-red-400" id="close-storage-modal"></i>
-          </div>
-          <div class="text-center py-4 px-8">
-            <!-- Unordered list to append items set from local storage -->
-             <ul id="storage-modal-list">
-             </ul>
-          </div>
-          <div class="flex justify-center space-x-4 mt-10">
-            <button class="px-3 py-1 rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white" id="storage-modal-ok">OK</button>
-          </div>
+    <!-- Modal to populate items set from Local Sorage -->
+    <div
+      id="storage-modal"
+      class="hidden bg-black bg-opacity-50 inset-0 absolute flex justify-center items-center"
+    >
+      <div
+        class="bg-gray-50 w-2/5 h-80 max-w-4xl py-30 px-30 rounded-lg shadow-xl"
+      >
+        <div
+          class="sm:overflow-y-hidden lg:overflow-hidden sm:relative lg:flex justify-between items-center text-center"
+        >
+          <h4 class="text-lg text-center p-1 sm:ml-0 lg:ml-72 font-semibold">
+            Your Current Itinerary:
+          </h4>
+          <i
+            class="fa-solid fa-xmark cursor-pointer mr-1 p-1 rounded hover:bg-red-400"
+            id="close-storage-modal"
+          ></i>
+        </div>
+        <div class="text-center py-4 px-8">
+          <!-- Unordered list to append items set from local storage -->
+          <ul id="storage-modal-list"></ul>
+        </div>
+        <div class="flex justify-center space-x-4 mt-10">
+          <button
+            class="px-3 py-1 rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white"
+            id="storage-modal-ok"
+          >
+            OK
+          </button>
         </div>
       </div>
-   
-      <!-- Footer with Copyright and Collaborator Credits -->
-        <footer class="text-center text-white inset-x-0 bottom-0 pb-2">
-            <p class="font-bold">© 2022 Made with <span class="text-red-600">❤</span> by:</p>
-            <ul>
-                <li>Robert Barnes</li>
-                <li>Damien Shoemake</li>
-                <li>Brett Elliott</li>
-                <li>Shelby Hernandez</li>
-                <li>Reginald Pitts</li>
-            </ul>
-        </footer>
-     
-    
-<!-- JQuery CDN Link -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </div>
 
-<!-- tailwinf flowbite source -->
-<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-<!-- JavaScript File Link -->
-<script src="./script.js"></script>
-</body>
+    <!-- Footer with Copyright and Collaborator Credits -->
+    <footer class="text-center text-white inset-x-0 bottom-0 pb-2">
+      <p class="font-bold">
+        © 2022 Made with <span class="text-red-600">❤</span> by:
+      </p>
+      <ul>
+        <li>Robert Barnes</li>
+        <li>Damien Shoemake</li>
+        <li>Brett Elliott</li>
+        <li>Shelby Hernandez</li>
+        <li>Reginald Pitts</li>
+      </ul>
+    </footer>
+
+    <!-- JQuery CDN Link -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- tailwinf flowbite source -->
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <!-- JavaScript File Link -->
+    <script src="./script.js"></script>
+  </body>
 </html>
