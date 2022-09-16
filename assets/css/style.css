@@ -75,5 +75,6 @@ body {
 }
 
 .font-bold {
-  padding-top: 65px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem
 }

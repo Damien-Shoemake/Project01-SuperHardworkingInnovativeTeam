@@ -63,7 +63,9 @@ function storeItineraries() {
 
 // function to build a request url from inputs
 function buildUrlFromInputs (city) {
-    if (typeof(city) !== String) {
+    if (typeof(input) !== String || typeof(input) == undefined) {
+        $(search-bar).attr("placeholder","Please enter a valid city.")
+        return
         //Modal that says "Please enter a city"
     }
     if (city) {
@@ -221,7 +223,7 @@ $('create-itinerary-btn').on('click', function(event){
 
 })
 
-
+//!DEBUGGING
 // Variables declared to grab List Elements and Modal Buttons
 const saveModal = document.getElementById("save-modal");
 const closeModalBtn = document.getElementById("close-modal");
@@ -240,6 +242,8 @@ function closeModal() {
   modalOkBtn.addEventListener("click", closeModal);
   hotelLinks.children.addEventListener("click", popUpModal);
   eventLinks.children.addEventListener("click", popUpModal);
+
+
 
 
 //!DEBUGGING
