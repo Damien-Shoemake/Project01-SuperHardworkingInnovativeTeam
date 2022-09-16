@@ -278,6 +278,10 @@ let event1 = document.getElementById('eventlist1');
 let event2 = document.getElementById('eventlist2');
 let event3 = document.getElementById('eventlist3');
 let event4 = document.getElementById('eventlist4');
+let hotel1 = document.getElementById('hotellist1');
+let hotel2 = document.getElementById('hotellist2');
+let hotel3 = document.getElementById('hotellist3');
+let hotel4 = document.getElementById('hotellist4');
 
 // function popUpModal() {
 //   saveModal.classList.remove('hidden');
@@ -299,6 +303,23 @@ function popUpModal3() {
 function popUpModal4() {
   saveModal.classList.remove('hidden');
   storeItineraries(event4.innerText);
+}
+
+function popUpModalH1() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(hotel1.innerText);
+}
+function popUpModalH2() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(hotel2.innerText);
+}
+function popUpModalH3() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(hotel3.innerText);
+}
+function popUpModalH4() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(hotel4.innerText);
 }
 
 function closeModal() {
