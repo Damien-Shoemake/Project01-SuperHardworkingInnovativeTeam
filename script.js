@@ -159,8 +159,10 @@ function printHotelData() {
     var eventToAppend = $('#hotellist' + appendNum);
     console.log(hotelsList[i]);
     eventToAppend.text(hotelsList[i].replace('&amp;', '&'));
+    eventToAppend.attr('data-hotel-name', hotelsList[i]);
   }
 }
+
 //function to search for events and venues
 function searchEvents(queryUrl) {
   eventsList = [];
