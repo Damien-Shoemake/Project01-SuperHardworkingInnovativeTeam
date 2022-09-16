@@ -296,7 +296,7 @@ let eventLinks = document.getElementById("eventCard");
 let storageModal = document.getElementById("storage-modal")
 
 function popUpModal() {
-  saveModal.classList.remove("hidden");
+    saveModal.classList.remove("hidden");
 }
 function closeModal() {
   saveModal.classList.add("hidden");
