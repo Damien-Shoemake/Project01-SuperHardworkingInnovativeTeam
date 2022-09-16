@@ -84,9 +84,8 @@ storedModalOkButton.addEventListener('click', closeStorageModal);
 
 // function to build a request url from inputs
 function buildUrlFromInputs(city) {
-  // if (typeof(input) !== String || typeof(input) == undefined) {
-  //     $(search-bar).attr("placeholder","Please enter a valid city.")
-  //return
+
+
   //Modal that says "Please enter a city"
 
   if (city) {
@@ -117,10 +116,10 @@ function displayItineraries(storedItineraries) {
   var makeItineraries = [...storedItineraries];
 
   makeItineraries.forEach(function (location) {
-    var locationDiv = itineraryEl.addClass(); //TODO: Figure out what classes we're adding to the divs for itinerary functionality
-    var locationBtn = $('<button>').addClass(); //TODO: Figure out what classes we're adding to the buttons for itinerary functionality
+     //TODO: Figure out what classes we're adding to the divs for itinerary functionality
+     //TODO: Figure out what classes we're adding to the buttons for itinerary functionality
 
-    locationDiv.append(locationBtn);
+    
   });
 }
 
@@ -182,8 +181,6 @@ function searchEvents(queryUrl) {
         returnedEvents['eventName'] = eventName;
         eventsList.push(returnedEvents);
 
-        // console.log(response.events[i].venue.name)
-        // console.log(response.events[i].short_title)
 
         if (response.events[i].short_title === undefined) {
           break;
@@ -191,45 +188,24 @@ function searchEvents(queryUrl) {
         if (i === 3) {
           break;
         }
-        console.log(eventsList);
+  
       }
       return eventsList;
     })
     .then(function () {
       printEventsData();
-      // html elements manipulated with .text(data.name) (or whatever other syntax)
-      //variables declared to store multiple events
-      //for loop that looks something like this:
-      //for(var i = 0; i <= 4; i++){
-      //  var eventsReturned = data.lodging[i] (or whatever the syntax truly is)
-      //  var pricingReturned = data.lodging[i].pricing (or whatever the syntax truly is)
-      //  elementManipulated.innerHTML = eventsReturned;
-      //  otherElementManipulated.innerHTML = pricingReturned;
-      //}
+
     });
 }
 
-//function to display previous search query
-// function displayLastQuery() {
-//     if(storedItineraries[0]) {
-//         //var queryUrl = function to build query to search both apis, stored as an array
-//         searchEvents(queryUrl[0]);
-//         searchHotels(queryUrl[1]);
-//     }
-//     else {
-//         searchBarElement.innerHTML = "Search for where you want to go!";
-//     }
-// }
 
 //event listener for search button
 $('#search-button').on('click', function (event) {
   //prevent default
   event.preventDefault();
 
-  //call the city from the input, test with trim is better or not
+  //call the city from the input
   var city = searchBarEl.val().trim();
-  //console.log(city)
-  // city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
 
   //clear the input without default refresh
   searchBarEl.val('');
@@ -249,7 +225,7 @@ function printEventsData() {
     var listToAppend = $('#eventlist' + appendNum);
     var venueToAppend = eventsList[i].venueName;
     var eventToAppend = eventsList[i].eventName;
-    console.log(eventsList[i].venueName);
+    
     listToAppend.text(
       eventToAppend.replace('&amp;', '&') +
         ' @ ' +
@@ -261,17 +237,11 @@ function printEventsData() {
         ' @ ' +
         venueToAppend.replace('&amp;', '&'),
     );
-    console.log(eventsList[i]);
+    
   }
 }
 
-//event listener for create itinerary button
 
-$('create-itinerary-btn').on('click', function (event) {
-  //store elements into local storage
-  storeItineraries();
-  //append all of the elements of the data into a new itinerary card
-});
 
 //!DEBUGGING
 // Variables declared to grab List Elements and Modal Buttons
@@ -315,20 +285,4 @@ function storeItineraries(item) {
   );
 }
 
-//!DEBUGGING
-// $('#search-button').on('click', function(event){
-//     event.preventDefault();
-//     queryLocationEvents = searchBarEl.val().trim();
-//     console.log('Button works')
-//     if (event){
-//     fetch(seatgeekRequest, {
-//         method: 'GET'
-//     }).then(response => response.json())
-//     .then(function(response){
-//         console.log(response)
-//     })
-//     }
-//})
 //loadItineraries()
-//displayItineraries(storedItineraries);
-//displayLastQuery()
