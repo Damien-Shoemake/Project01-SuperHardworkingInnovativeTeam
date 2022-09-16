@@ -159,8 +159,10 @@ function printHotelData() {
     var eventToAppend = $('#hotellist' + appendNum);
     console.log(hotelsList[i]);
     eventToAppend.text(hotelsList[i].replace('&amp;', '&'));
+    eventToAppend.attr('data-hotel-name', hotelsList[i].replace('&amp;', '&'));
   }
 }
+
 //function to search for events and venues
 function searchEvents(queryUrl) {
   eventsList = [];
@@ -253,7 +255,12 @@ function printEventsData() {
         ' @ ' +
         venueToAppend.replace('&amp;', '&'),
     );
-
+    listToAppend.attr(
+      'data-event-name',
+      eventToAppend.replace('&amp;', '&') +
+        ' @ ' +
+        venueToAppend.replace('&amp;', '&'),
+    );
     console.log(eventsList[i]);
   }
 }
@@ -274,52 +281,22 @@ const modalOkBtn = document.getElementById('modal-ok');
 let hotelLinks = document.getElementById('hotelCard');
 let eventLinks = document.getElementById('eventCard');
 let storageModal = document.getElementById('storage-modal');
-let event1 = document.getElementById('eventlist1');
-let event2 = document.getElementById('eventlist2');
-let event3 = document.getElementById('eventlist3');
-let event4 = document.getElementById('eventlist4');
-let hotel1 = document.getElementById('hotellist1');
-let hotel2 = document.getElementById('hotellist2');
-let hotel3 = document.getElementById('hotellist3');
-let hotel4 = document.getElementById('hotellist4');
 
 // function popUpModal() {
 //   saveModal.classList.remove('hidden');
 //   storeItineraries(event1.innerText);
 // }
 
-function popUpModal1() {
+function popUpModalEvent(data) {
   saveModal.classList.remove('hidden');
-  storeItineraries(event1.innerText);
-}
-function popUpModal2() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(event2.innerText);
-}
-function popUpModal3() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(event3.innerText);
-}
-function popUpModal4() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(event4.innerText);
+  let event_name = data.getAttribute('data-event-name');
+  storeItineraries(event_name);
 }
 
-function popUpModalH1() {
+function popUpModalHotel(data) {
   saveModal.classList.remove('hidden');
-  storeItineraries(hotel1.innerText);
-}
-function popUpModalH2() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(hotel2.innerText);
-}
-function popUpModalH3() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(hotel3.innerText);
-}
-function popUpModalH4() {
-  saveModal.classList.remove('hidden');
-  storeItineraries(hotel4.innerText);
+  let hotel_name = data.getAttribute('data-hotel-name');
+  storeItineraries(hotel_name);
 }
 
 function closeModal() {
