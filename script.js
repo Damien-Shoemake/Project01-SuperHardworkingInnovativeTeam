@@ -318,19 +318,6 @@ function popUpModalHotel(data) {
   storeItineraries(hotel_name);
 }
 
-// function popUpModalH2() {
-//   saveModal.classList.remove('hidden');
-//   storeItineraries(hotel2.innerText);
-// }
-// function popUpModalH3() {
-//   saveModal.classList.remove('hidden');
-//   storeItineraries(hotel3.innerText);
-// }
-// function popUpModalH4() {
-//   saveModal.classList.remove('hidden');
-//   storeItineraries(hotel4.innerText);
-// }
-
 function closeModal() {
   saveModal.classList.add('hidden');
 }
