@@ -295,10 +295,11 @@ let storageModal = document.getElementById('storage-modal');
 //   storeItineraries(event1.innerText);
 // }
 
-// function popUpModal1() {
-//   saveModal.classList.remove('hidden');
-//   storeItineraries(event1.innerText);
-// }
+function popUpModalEvent() {
+  saveModal.classList.remove('hidden');
+  let event_name = data.getAttribute('data-event-name');
+  storeItineraries(event_name);
+}
 // function popUpModal2() {
 //   saveModal.classList.remove('hidden');
 //   storeItineraries(event2.innerText);
