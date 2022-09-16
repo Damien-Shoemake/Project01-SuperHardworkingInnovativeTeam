@@ -159,7 +159,7 @@ function printHotelData() {
     var eventToAppend = $('#hotellist' + appendNum);
     console.log(hotelsList[i]);
     eventToAppend.text(hotelsList[i].replace('&amp;', '&'));
-    eventToAppend.attr('data-hotel-name', hotelsList[i]);
+    eventToAppend.attr('data-hotel-name', hotelsList[i].replace('&amp;', '&'));
   }
 }
 
@@ -255,7 +255,12 @@ function printEventsData() {
         ' @ ' +
         venueToAppend.replace('&amp;', '&'),
     );
-
+    listToAppend.attr(
+      'data-event-name',
+      eventToAppend.replace('&amp;', '&') +
+        ' @ ' +
+        venueToAppend.replace('&amp;', '&'),
+    );
     console.log(eventsList[i]);
   }
 }
