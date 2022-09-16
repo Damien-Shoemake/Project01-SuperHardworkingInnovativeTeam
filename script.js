@@ -274,11 +274,33 @@ const modalOkBtn = document.getElementById('modal-ok');
 let hotelLinks = document.getElementById('hotelCard');
 let eventLinks = document.getElementById('eventCard');
 let storageModal = document.getElementById('storage-modal');
+let event1 = document.getElementById('eventlist1');
+let event2 = document.getElementById('eventlist2');
+let event3 = document.getElementById('eventlist3');
+let event4 = document.getElementById('eventlist4');
 
-function popUpModal() {
+// function popUpModal() {
+//   saveModal.classList.remove('hidden');
+//   storeItineraries(event1.innerText);
+// }
+
+function popUpModal1() {
   saveModal.classList.remove('hidden');
-  storeItineraries();
+  storeItineraries(event1.innerText);
 }
+function popUpModal2() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(event2.innerText);
+}
+function popUpModal3() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(event3.innerText);
+}
+function popUpModal4() {
+  saveModal.classList.remove('hidden');
+  storeItineraries(event4.innerText);
+}
+
 function closeModal() {
   saveModal.classList.add('hidden');
 }
@@ -286,12 +308,10 @@ function closeModal() {
 closeModalBtn.addEventListener('click', closeModal);
 modalOkBtn.addEventListener('click', closeModal);
 hotelLinks.children.addEventListener('click', popUpModal);
-eventLinks.children.addEventListener('click', popUpModal);
-hotelLinks.children.addEventListener('click', storeItineraries);
-eventLinks.children.addEventListener('click', storeItineraries);
 
 // function to store itineraries
-function storeItineraries() {
+function storeItineraries(item) {
+  console.log(item);
   localStorage.setItem(
     'storedItineraries',
     JSON.stringify(previousItineraries),
