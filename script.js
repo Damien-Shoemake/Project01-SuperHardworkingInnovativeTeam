@@ -311,7 +311,7 @@ hotelLinks.children.addEventListener('click', popUpModal);
 
 // function to store itineraries
 function storeItineraries(item) {
-  console.log(item);
+  previousItineraries.push(item);
   localStorage.setItem(
     'storedItineraries',
     JSON.stringify(previousItineraries),
