@@ -54,11 +54,38 @@ function loadItineraries() {
     if (storedItineraries) {
         previousItineraries = storedItineraries;
     }
+    var storedInineraryModalList = document.getElementById('storage-modal-list');
+    var savedListItem = document.createElement("li");
+    savedListItem.textContent = previousItineraries;
+    storedInineraryModalList.append(savedListItem);
+  
 }
+
+function popUpSaveModal () {
+    storageModal.classList.remove("hidden");
+
+    loadItineraries();
+}
+
+var saveDropDown = document.getElementById("savedropdown")
+saveDropDown.children[0].addEventListener("click", popUpSaveModal)
+saveDropDown.children[1].addEventListener("click", popUpSaveModal)
+saveDropDown.children[2].addEventListener("click", popUpSaveModal)
+saveDropDown.children[3].addEventListener("click", popUpSaveModal)
+    
+// function to close storage modal
+function closeStorageModal() {
+ storageModal.classList.add("hidden");
+}
+
+var storedModalOkButton = document.getElementById("storage-modal-ok");
+storedModalOkButton.addEventListener("click", closeStorageModal);
 
 // function to store itineraries
 function storeItineraries() {
-    localStorage.setItem('searchedCities', JSON.stringify(previousItineraries));
+    
+    localStorage.setItem('storedItineraries', JSON.stringify(previousItineraries));
+
 }
 
 // function to build a request url from inputs
@@ -277,6 +304,8 @@ function closeModal() {
   modalOkBtn.addEventListener("click", closeModal);
   hotelLinks.children.addEventListener("click", popUpModal);
   eventLinks.children.addEventListener("click", popUpModal);
+  hotelLinks.children.addEventListener("click", storeItineraries);
+  eventLinks.children.addEventListener("click", storeItineraries);
 
 
 
