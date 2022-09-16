@@ -31,8 +31,8 @@ const optionsHotels = {
 }
 
 //empty array to store variables
-var hotelsList = [];
-var eventsList = [];
+var hotelsList;
+var eventsList;
 var previousItineraries = [];
 const mainNav = document.getElementById("main-nav");
 const toggleMenuIcon = document.getElementById("toggleicon");
@@ -100,6 +100,7 @@ function displayItineraries (storedItineraries) {
 
 //function to search for hotels and lodging
 function searchHotels (queryUrl) {
+    hotelsList = [];
 
     fetch(queryUrl, optionsHotels)
     .then(function(response){
@@ -113,7 +114,7 @@ function searchHotels (queryUrl) {
         //! LIST OF HOTELS THAT WILL BE APPENDED TO THE PAGE, AND A LOOP TO GET 4 HOTELS OR AS MANY AS POSSIBLE
         for(let i = 0; i < response.suggestions[1].entities.length; i++){
             hotelsList.push(response.suggestions[1].entities[i].name)
-            console.log(response.suggestions[1].entities[i].name)
+            //console.log(response.suggestions[1].entities[i].name)
 
             if (response.suggestions[1].entities[i].name === undefined){
                 break
@@ -124,6 +125,7 @@ function searchHotels (queryUrl) {
 
         }
         console.log(hotelsList)
+        printHotelData()
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //for loop that looks something like this: 
         //for(var i = 0; i <= 4; i++){
@@ -136,8 +138,19 @@ function searchHotels (queryUrl) {
 
 }
 
+function printHotelData() {
+    for (i = 0; i < hotelsList.length; i++) {
+        
+        let appendNum = i + 1;
+        var eventToAppend = $("#testid" + appendNum)
+        console.log(hotelsList[i])
+        eventToAppend.append(hotelsList[i].replace('&amp;', '&'))
+
+    }
+}
 //function to search for events and venues
 function searchEvents (queryUrl) {
+    eventsList = [];
 
     fetch(queryUrl, {
         method: "GET"
@@ -150,8 +163,8 @@ function searchEvents (queryUrl) {
             var venueName = response.events[i].venue.name
             var eventName = response.events[i].short_title
             var returnedEvents = {}
-            returnedEvents['Venue Name'] = venueName;
-            returnedEvents['Event Name'] = eventName;
+            returnedEvents['Venue Name' + i] = venueName;
+            returnedEvents['Event Name' + i] = eventName;
             eventsList.push(returnedEvents);
 
             // console.log(response.events[i].venue.name)
@@ -163,32 +176,39 @@ function searchEvents (queryUrl) {
             if (i === 3) {
                 break
             }
-            console.log(returnedEvents)
+            //console.log(returnedEvents)
         }
-        // html elements manipulated with .text(data.name) (or whatever other syntax)
+        return eventsList;
+        
+    })
+    .then(function() {
+
+    printEventsData();
+    // html elements manipulated with .text(data.name) (or whatever other syntax)
         //variables declared to store multiple events
         //for loop that looks something like this: 
         //for(var i = 0; i <= 4; i++){
-        //  var eventsReturned = data.lodging[i] (or whatever the syntax truly is)
-        //  var pricingReturned = data.lodging[i].pricing (or whatever the syntax truly is)
-        //  elementManipulated.innerHTML = eventsReturned;
-        //  otherElementManipulated.innerHTML = pricingReturned; 
+            //  var eventsReturned = data.lodging[i] (or whatever the syntax truly is)
+            //  var pricingReturned = data.lodging[i].pricing (or whatever the syntax truly is)
+            //  elementManipulated.innerHTML = eventsReturned;
+            //  otherElementManipulated.innerHTML = pricingReturned; 
         //}
     })
 
 }
 
 //function to display previous search query
-function displayLastQuery() {
-    if(storedItineraries[0]) {
-        //var queryUrl = function to build query to search both apis, stored as an array
-        searchEvents(queryUrl[0]);
-        searchHotels(queryUrl[1]);
-    }
-    else {
-        searchBarElement.innerHTML = "Search for where you want to go!";
-    }
-}
+// function displayLastQuery() {
+//     if(storedItineraries[0]) {
+//         //var queryUrl = function to build query to search both apis, stored as an array
+//         searchEvents(queryUrl[0]);
+//         searchHotels(queryUrl[1]);
+//     }
+//     else {
+//         searchBarElement.innerHTML = "Search for where you want to go!";
+//     }
+// }
+
 
 //event listener for search button 
 $('#search-button').on('click', function(event){
@@ -198,7 +218,7 @@ $('#search-button').on('click', function(event){
 
     //call the city from the input, test with trim is better or not
     var city = searchBarEl.val().trim()
-    console.log(city)
+    //console.log(city)
     // city = city.replace(' ', '%20'); // this is so cities with whitespace in the name can be searched for
     
     //clear the input without default refresh
@@ -207,11 +227,23 @@ $('#search-button').on('click', function(event){
     //build the query url with the city and call the functions
     if(city) {
         var queryUrl = buildUrlFromInputs(city);
-        console.log(queryUrl)
+        //console.log(queryUrl)
         searchEvents(queryUrl[0]);
         searchHotels(queryUrl[1]);
+        
+        
     }
+    
+
 })
+
+function printEventsData () {
+
+//TODO: CREATE A LOOP TO CALL OUR INFORMATION STORED IN THE eventsList OBJECT, THE KEYWORD IS DYNAMICALLY ALTERED WITH EACH CALL, REFER TO THE FOR LOOP UNDER THE searchEvents() FUNCTION, IN THE FUNCTION AFTER THE JSON RESPONSE PROMISE
+
+}
+
+
 
 //event listener for create itinerary button
 
@@ -230,6 +262,7 @@ const closeModalBtn = document.getElementById("close-modal");
 const modalOkBtn = document.getElementById("modal-ok");
 let hotelLinks = document.getElementById("hotelCard");
 let eventLinks = document.getElementById("eventCard");
+let storageModal = document.getElementById("storage-modal")
 
 function popUpModal() {
   saveModal.classList.remove("hidden");
