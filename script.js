@@ -63,17 +63,17 @@ function storeItineraries() {
 
 // function to build a request url from inputs
 function buildUrlFromInputs (city) {
-    if (typeof(input) !== String || typeof(input) == undefined) {
-        $(search-bar).attr("placeholder","Please enter a valid city.")
-        return
-        //Modal that says "Please enter a city"
-    }
+    // if (typeof(input) !== String || typeof(input) == undefined) {
+    //     $(search-bar).attr("placeholder","Please enter a valid city.")
+         //return
+         //Modal that says "Please enter a city"
+    
     if (city) {
         queryLocationEvents = city;
         queryLocationHotels = city;
         let seatgeekSearchCity = "https://api.seatgeek.com/2/events?q=" + queryLocationEvents + "&client_id=" + myApiKeySeatgeek;
         let hotels4SearchCity = 'https://hotels4.p.rapidapi.com/locations/v2/search?query=' + queryLocationHotels + '&locale=en_US&currency=USD'
-        return[seatgeekSearchCity, hotels4SearchCity]
+        return [seatgeekSearchCity, hotels4SearchCity]
     }
 }
 
@@ -124,7 +124,9 @@ function searchHotels (queryUrl) {
             }
 
         }
-        console.log(hotelsList)
+        
+    })
+    .then(function(){
         printHotelData()
         // html elements manipulated with .text(data.name) (or whatever other syntax)
         //for loop that looks something like this: 
@@ -142,9 +144,9 @@ function printHotelData() {
     for (i = 0; i < hotelsList.length; i++) {
         
         let appendNum = i + 1;
-        var eventToAppend = $("#testid" + appendNum)
+        var eventToAppend = $("#hotellist" + appendNum)
         console.log(hotelsList[i])
-        eventToAppend.append(hotelsList[i].replace('&amp;', '&'))
+        eventToAppend.text(hotelsList[i].replace('&amp;', '&'))
 
     }
 }
