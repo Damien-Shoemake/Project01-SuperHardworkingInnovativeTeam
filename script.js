@@ -328,7 +328,6 @@ function closeModal() {
 
 closeModalBtn.addEventListener('click', closeModal);
 modalOkBtn.addEventListener('click', closeModal);
-hotelLinks.children.addEventListener('click', popUpModal);
 
 // function to store itineraries
 function storeItineraries(item) {
