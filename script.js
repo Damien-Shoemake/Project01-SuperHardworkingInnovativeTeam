@@ -295,7 +295,7 @@ let storageModal = document.getElementById('storage-modal');
 //   storeItineraries(event1.innerText);
 // }
 
-function popUpModalEvent() {
+function popUpModalEvent(data) {
   saveModal.classList.remove('hidden');
   let event_name = data.getAttribute('data-event-name');
   storeItineraries(event_name);
