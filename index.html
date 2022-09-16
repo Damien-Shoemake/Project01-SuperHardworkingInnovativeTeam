@@ -36,15 +36,27 @@
         <input class="rounded-full py-1 pl-3 pr-10" id="search-bar" type="text" placeholder="Search...">
         <button id="search-button" class="-ml-8 mr-6"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
+
+      <!-- button for itinerary -->
+      <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Itineraries<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
       
       <!-- Dropdown Menu for Custom Itinieraries from User Selection -->
-      <label for="itinerary" class="font-bold text-white">Itineraries:</label>
-      <select name="dropdown-menu-1" id="itinerary-menu" class="rounded p-2 ml-2">
-        <option value="Itinerary 1">Itinerary 1</option>
-        <option value="Itinerary 2">Itinerary 2</option>
-        <option value="Itinerary 3">Itinerary 3</option>
-        <option value="Itinerary 4">Itinerary 4</option>
-      </select>
+      <div id="dropdownDivider" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
+          <li>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-1">Itinerary 1</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-2">Itinerary 2</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-3">Itinerary 3</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" id="Itin-4">Itinerary 4</a>
+          </li>
+        </ul>
+    </div>
       </div>
 
 
@@ -145,6 +157,9 @@
     
 <!-- JQuery CDN Link -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<!-- tailwinf flowbite source -->
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 <!-- JavaScript File Link -->
 <script src="./script.js"></script>
 </body>
