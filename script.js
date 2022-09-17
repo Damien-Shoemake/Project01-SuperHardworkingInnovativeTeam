@@ -1,4 +1,3 @@
-// Pseudo code for the project
 
 // HTML elements to manipulate declared as variables
 var searchBarEl = $('#search-bar');
@@ -70,9 +69,7 @@ function popUpSaveModal() {
 
 var saveDropDown = document.getElementById('savedropdown');
 saveDropDown.children[0].addEventListener('click', popUpSaveModal);
-// saveDropDown.children[1].addEventListener('click', popUpSaveModal);
-// saveDropDown.children[2].addEventListener('click', popUpSaveModal);
-// saveDropDown.children[3].addEventListener('click', popUpSaveModal);
+
 
 // function to close storage modal
 function closeStorageModal() {
@@ -115,24 +112,6 @@ function buildUrlFromInputs(city) {
   }
 }
 
-//function to display itineraries
-
-function displayItineraries(storedItineraries) {
-  // empty the container elements with a method
-  itineraryEl.empty();
-  // .splice up to 4 stored itineraries
-  storedItineraries.splice(4);
-
-  // append the stored elements to the page
-  var makeItineraries = [...storedItineraries];
-
-  makeItineraries.forEach(function (location) {
-     //TODO: Figure out what classes we're adding to the divs for itinerary functionality
-     //TODO: Figure out what classes we're adding to the buttons for itinerary functionality
-
-    
-  });
-}
 
 //function to search for hotels and lodging
 function searchHotels(queryUrl) {
@@ -224,7 +203,6 @@ $('#search-button').on('click', function (event) {
   //build the query url with the city and call the functions
   if (city) {
     var queryUrl = buildUrlFromInputs(city);
-    //console.log(queryUrl)
     searchEvents(queryUrl[0]);
     searchHotels(queryUrl[1]);
   }
@@ -253,8 +231,6 @@ function printEventsData() {
 }
 
 
-
-//!DEBUGGING
 // Variables declared to grab List Elements and Modal Buttons
 const saveModal = document.getElementById('save-modal');
 const closeModalBtn = document.getElementById('close-modal');
@@ -263,10 +239,6 @@ let hotelLinks = document.getElementById('hotelCard');
 let eventLinks = document.getElementById('eventCard');
 let storageModal = document.getElementById('storage-modal');
 
-// function popUpModal() {
-//   saveModal.classList.remove('hidden');
-//   storeItineraries(event1.innerText);
-// }
 
 function popUpModalEvent(data) {
   saveModal.classList.remove('hidden');
@@ -296,4 +268,4 @@ function storeItineraries(item) {
   );
 }
 
-//loadItineraries()
+
