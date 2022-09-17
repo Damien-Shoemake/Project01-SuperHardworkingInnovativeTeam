@@ -70,23 +70,34 @@ function popUpSaveModal() {
 
 var saveDropDown = document.getElementById('savedropdown');
 saveDropDown.children[0].addEventListener('click', popUpSaveModal);
-saveDropDown.children[1].addEventListener('click', popUpSaveModal);
-saveDropDown.children[2].addEventListener('click', popUpSaveModal);
-saveDropDown.children[3].addEventListener('click', popUpSaveModal);
+// saveDropDown.children[1].addEventListener('click', popUpSaveModal);
+// saveDropDown.children[2].addEventListener('click', popUpSaveModal);
+// saveDropDown.children[3].addEventListener('click', popUpSaveModal);
 
 // function to close storage modal
 function closeStorageModal() {
   storageModal.classList.add('hidden');
 }
 
-var storedModalOkButton = document.getElementById('storage-modal-ok');
-storedModalOkButton.addEventListener('click', closeStorageModal);
+var storedModalCloseButton = document.getElementById('close-storage-modal');
+storedModalCloseButton.addEventListener('click', closeStorageModal);
+
+// Function to clear clicked item from modal and local storage
+
+function clearStorageModal(storedItineraries) {
+
+    var storedInineraryModalList = document.getElementById('storage-modal-list');
+    storedInineraryModalList.remove();
+    localStorage.clear();
+
+}
+
+var clearStorageModalButton = document.getElementById('close-storage-modal')
+clearStorageModalButton.addEventListener('click', clearStorageModal);
+
 
 // function to build a request url from inputs
 function buildUrlFromInputs(city) {
-
-
-  //Modal that says "Please enter a city"
 
   if (city) {
     queryLocationEvents = city;
@@ -108,7 +119,7 @@ function buildUrlFromInputs(city) {
 
 function displayItineraries(storedItineraries) {
   // empty the container elements with a method
-  ItineraryEl.empty();
+  itineraryEl.empty();
   // .splice up to 4 stored itineraries
   storedItineraries.splice(4);
 

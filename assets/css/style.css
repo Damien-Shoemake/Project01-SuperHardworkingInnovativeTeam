@@ -1,78 +1,17 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
-body {
+html {
     background: url("../images/IMG_1752.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
+    background-attachment: fixed;
 }
 
 
-#welcome {
-
-}
-
-#greeter {
-
-}
-
-.search-form {
-
-}
-
-#input-section2 {
-
-}
-
-#button {
-
-}
-
-/* Need syntax to target for & value in lines 36-41 in html */
-
-#travel-coordination {
-  position: center;
-  color: white;
-  font-size: 30px;
-  padding-top: 2px;
-}
-
-#subtitle {
-  color:greenyellow;
-  font-size: 15px;
-  position: center;
-}
-
-.main {
-    
-}
-
-#place-to-stay {
-
-}
-
-#lodging {
-
-}
-
-#things-to-do {
-
-}
-
-#events {
-
-}
-
-#good-eats {
-
-}
-
-#food {
-
-}
 
 .font-bold {
   padding-top: 0.75rem;
