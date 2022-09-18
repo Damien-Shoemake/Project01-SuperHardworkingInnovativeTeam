@@ -55,16 +55,21 @@ function loadItineraries() {
   if (storedItineraries) {
     previousItineraries = storedItineraries;
   }
-  var storedInineraryModalList = document.getElementById('storage-modal-list');
+  
+  var storedItineraryModal = document.getElementById('storage-modal-list');
   var savedListItem = document.createElement('li');
+  savedListItem.setAttribute('id', 'dynamicListItem')
   savedListItem.textContent = previousItineraries;
-  storedInineraryModalList.append(savedListItem);
-}
+  if (storedItineraryModal !== null){
+    storedItineraryModal.append(savedListItem);
+    }
+  }
+
 
 function popUpSaveModal() {
   storageModal.classList.remove('hidden');
-
-  loadItineraries();
+  var checkForAppend = document.getElementById('dynamicListItem')
+    loadItineraries();
 }
 
 var saveDropDown = document.getElementById('savedropdown');
@@ -81,15 +86,19 @@ storedModalCloseButton.addEventListener('click', closeStorageModal);
 
 // Function to clear clicked item from modal and local storage
 
-function clearStorageModal(storedItineraries) {
+function clearStorageModal() {
 
-    var storedInineraryModalList = document.getElementById('storage-modal-list');
-    storedInineraryModalList.remove();
+    var storedItineraryModal = document.getElementById('storage-modal-list');
+    let listItemToRemove = document.getElementById('dynamicListItem')
+    if (storedItineraryModal !== null) {
+      storedItineraryModal.removeChild(listItemToRemove);
+      previousItineraries = []
+    }
     localStorage.clear();
 
 }
 
-var clearStorageModalButton = document.getElementById('close-storage-modal')
+var clearStorageModalButton = document.getElementById('storage-modal-clear')
 clearStorageModalButton.addEventListener('click', clearStorageModal);
 
 
@@ -122,7 +131,6 @@ function searchHotels(queryUrl) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
 
       //! LIST OF HOTELS THAT WILL BE APPENDED TO THE PAGE, AND A LOOP TO GET 4 HOTELS OR AS MANY AS POSSIBLE
       for (let i = 0; i < response.suggestions[1].entities.length; i++) {
@@ -146,7 +154,6 @@ function printHotelData() {
   for (i = 0; i < hotelsList.length; i++) {
     let appendNum = i + 1;
     var eventToAppend = $('#hotellist' + appendNum);
-    console.log(hotelsList[i]);
     eventToAppend.text(hotelsList[i].replace('&amp;', '&'));
     eventToAppend.attr('data-hotel-name', hotelsList[i].replace('&amp;', '&'));
   }
@@ -161,7 +168,6 @@ function searchEvents(queryUrl) {
   })
     .then((response) => response.json())
     .then(function (response) {
-      console.log(response);
 
       for (let i = 0; i < response.events.length; i++) {
         var venueName = response.events[i].venue.name;
@@ -267,5 +273,3 @@ function storeItineraries(item) {
     JSON.stringify(previousItineraries),
   );
 }
-
-
