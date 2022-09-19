@@ -16,7 +16,7 @@ theres a search bar at the top where you can enter a city of your choice. The mo
 events will populate the cards pinned to the screen. If you'd like you can save the various hotels and events to an itinerary
 to view at any time with the option of clearing said itinerary.
 
-![screenshotgif](https://media.giphy.com/media/z8AvTuCI5j6Bt26tvt/giphy.gif)
+![video](https://media.giphy.com/media/z8AvTuCI5j6Bt26tvt/giphy.gif)
 
 Live URL: (https://damien-shoemake.github.io/Project01-SuperHardworkingInnovativeTeam/)
 
