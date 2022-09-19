@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities; */
 
+
+*{
+  font-family: 'Nanum Gothic', Arial;
+}
+
 html {
     background: url("../images/IMG_1752.jpg");
     background-size: cover;
