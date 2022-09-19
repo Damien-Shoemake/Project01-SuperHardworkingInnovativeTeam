@@ -267,5 +267,3 @@ function storeItineraries(item) {
     JSON.stringify(previousItineraries),
   );
 }
-
-
