@@ -60,8 +60,13 @@ function loadItineraries() {
   var savedListItem = document.createElement('li');
   savedListItem.setAttribute('id', 'dynamicListItem')
   savedListItem.textContent = previousItineraries;
-  if (storedItineraryModal !== null){
-    storedItineraryModal.append(savedListItem);
+  if (storedItineraryModal != null){
+    //if (savedListItem.textContent && storedItineraryModal.children[0]){
+    //  storedItineraryModal.removeChild(savedListItem);
+   // }else {
+      
+      storedItineraryModal.append(savedListItem);
+    //}
     }
   }
 
@@ -79,6 +84,9 @@ saveDropDown.children[0].addEventListener('click', popUpSaveModal);
 // function to close storage modal
 function closeStorageModal() {
   storageModal.classList.add('hidden');
+  var storedItineraryModal = document.getElementById('storage-modal-list');
+  let listItemToRemove = document.getElementById('dynamicListItem')
+  storedItineraryModal.removeChild(listItemToRemove)
 }
 
 var storedModalCloseButton = document.getElementById('close-storage-modal');
