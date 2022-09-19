@@ -22,3 +22,16 @@ html {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem
 }
+
+@media screen and (min-width: 1024px) {
+  
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+} 
+}
